@@ -74,8 +74,11 @@ def handle_sub_menu_choice(choice2, selection):
             data = ui.merch_input()
         elif selection == "events":
             data = ui.event_input()
-        db_manipulation.add(selection, data)
-        pass
+        boolean = db_manipulation.add(selection, data)
+        if boolean:
+            ui.message("\n  "+data[0]+" Added")
+        elif boolean:
+            ui.message("\n  Failed to Add "+data[0])
     elif choice2 == '3':
         #TODO add function to edit data in table
         data_list = db_store.db_get_data(selection)
@@ -86,7 +89,12 @@ def handle_sub_menu_choice(choice2, selection):
                 data = ui.merch_input()
             elif selection == "events":
                 data = ui.event_input()
-            db_manipulation.edit_update(selection, edit_id, data)
+            boolean = db_manipulation.edit_update(selection, edit_id, data)
+            if boolean:
+                ui.message("\n  Update Succseeded")
+                pass
+            elif boolean:
+                ui.message("\n  Failed to Update")
         else:
             ui.message("\n  "+selection+" table contains zero data")
             pass
@@ -96,10 +104,14 @@ def handle_sub_menu_choice(choice2, selection):
         if data_list != None:
             ui.print_data(data_list)
             delete_id = ui.id_input()
-            db_manipulation.delete(selection, delete_id)
+            boolean = db_manipulation.delete(selection, delete_id)
+            if boolean:
+                ui.message("\n  Delete Succseeded")
+                pass
+            elif boolean:
+                ui.message("\n  Failed to Delete")
         else:
             ui.message("\n  "+selection+" table contains zero data")
-            pass
     elif choice2 == '5':
         pass
     elif choice2 == 'q':
@@ -124,7 +136,11 @@ def handle_record_menu_choice(choice3):
         if record_list != None:
             ui.print_record(record_list)
             record = ui.record_inputs()
-            db_manipulation.update_record(record)
+            boolean = db_manipulation.update_record(record)
+            if boolean:
+                ui.message("\n  Record Updated")
+            elif boolean == False:
+                ui.message("\n Record Failed to Update")
         else:
             ui.message("\n  No records currently exist")
             pass

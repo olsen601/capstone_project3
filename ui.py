@@ -100,7 +100,7 @@ def event_input():
 
 def id_input():
 
-    ID = int(input("Enter the id of the item to edit: "))
+    ID = input("Enter the id of the item to edit: ")
 
     return ID
 
@@ -109,7 +109,7 @@ def record_inputs():
 
     event = input("Enter the name of the event: ")
     merch = input("Enter the product name: ")
-    sold = int(input("Enter the number of products sold at the event: "))
+    sold = input("Enter the number of products sold at the event: ")
     data = [ event, merch, sold ]
     return data
 
