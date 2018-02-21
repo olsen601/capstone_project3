@@ -1,5 +1,4 @@
 
-#TODO display banner of program title
 def display_banner():
     '''Display program name in a banner'''
     msg = 'Sales Program'
@@ -16,7 +15,7 @@ def display_sub_menu_title(title):
 
 def display_menu():
 
-    '''Display menu choices for user, return users' selection'''
+    '''Display menu choices for user, return users selection'''
 
     print('''
         1. Merchandise
@@ -33,7 +32,7 @@ def display_menu():
 
 def display_sub_menu():
 
-    '''Display sub menu choices for user, return users' selection'''
+    '''Display sub menu choices for user, return users selection'''
 
     print('''
         1. Display
@@ -50,6 +49,8 @@ def display_sub_menu():
 
 
 def display_recored_menu():
+
+    '''Display record menu choices for user, return users selection'''
 
     print('''
         1. Display Records
@@ -69,6 +70,8 @@ def display_recored_menu():
 
 def display_search_menu():
 
+    '''Display search menu choices for user, return users selection'''
+
     print('''
         1. Search By Event
         2. Search By Merchandise
@@ -83,6 +86,8 @@ def display_search_menu():
 
 def merch_input():
 
+    '''Used for the add and edit function on the merchandise table'''
+
     name = input("Product name: ")
     cost = input("Product cost: $")
     data = [ name, cost ]
@@ -90,6 +95,8 @@ def merch_input():
 
 
 def event_input():
+
+    '''Used for the add and edit function on the events table'''
 
     name = input("Event name: ")
     location = input("Event Location: ")
@@ -100,12 +107,16 @@ def event_input():
 
 def id_input():
 
+    '''Used by the edit and delete functions for the events and merchandise tables'''
+
     ID = input("Enter the id of the item to edit: ")
 
     return ID
 
 
 def record_inputs():
+
+    '''Uses event and merch variables to find a record with those ids and updates the sold variable'''
 
     event = input("Enter the name of the event: ")
     merch = input("Enter the product name: ")
@@ -116,11 +127,16 @@ def record_inputs():
 
 def search_input():
 
+    '''Input used to query databse for similar data'''
+
     term = input("Enter search term: ")
     return term
 
 
 def print_data(data_list):
+
+    '''Print data from the events or merchandise table'''
+
     line = None
     for data in data_list:
         text = ' | '
@@ -135,6 +151,9 @@ def print_data(data_list):
 
 
 def print_record(record_list):
+
+    '''Prints results for inner joined querys that concatenate data to form analyses'''
+
     line = None
     for record in record_list:
         text = ' | '
@@ -149,5 +168,7 @@ def print_record(record_list):
 
 
 def message(msg):
+
     '''Display a message to the user'''
+
     print(msg)

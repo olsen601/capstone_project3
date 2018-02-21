@@ -5,10 +5,12 @@ global cur
 
 def db_setup():
 
+    '''Creates tables if they don't exist and creates cursor'''
+
     global salesDB
     global cur
 
-    salesDB = sqlite3.connect('sales.db')
+    salesDB = sqlite3.connect('Project3_version2/sales.db')
 
     cur = salesDB.cursor()
 
@@ -20,6 +22,8 @@ def db_setup():
 
 
 def db_get_data(table):
+
+    '''Retrieves table data based on the table parameter'''
 
     global salesDB
     global cur
@@ -34,6 +38,8 @@ def db_get_data(table):
 
 def db_get_event_search_data(term):
 
+    '''Querys events table for items that contains name like the term parameter'''
+
     global salesDB
     global cur
 
@@ -45,6 +51,8 @@ def db_get_event_search_data(term):
         return None
 
 def db_get_merchandise_serch_data(term):
+
+    '''Querys merchandise table for items that contains merch_name like the term parameter'''
 
     global salesDB
     global cur
@@ -59,6 +67,8 @@ def db_get_merchandise_serch_data(term):
 
 def db_get_records():
 
+    '''Querys to replace event_id with name and merch_id with merch_name to display each record'''
+
     global salesDB
     global cur
 
@@ -71,6 +81,8 @@ def db_get_records():
 
 
 def db_high_records():
+
+    '''Same as db_get_records but displays in order of most sold'''
 
     global salesDB
     global cur
@@ -85,6 +97,8 @@ def db_high_records():
 
 def db_total_sales_records():
 
+    '''Querys event name, merchandise merch_name, records sold and merchandise cost then multiplies the cost by the number sold and rounds to the second decimal place'''
+
     global salesDB
     global cur
 
@@ -97,6 +111,8 @@ def db_total_sales_records():
 
 
 def db_total_merch_sales_records():
+
+    '''Querys merch_name and then finds the net sales of the product'''
 
     global salesDB
     global cur
@@ -111,6 +127,8 @@ def db_total_merch_sales_records():
 
 def db_total_events_sales_records():
 
+    '''Querys for event names and net sales of those events'''
+
     global salesDB
     global cur
 
@@ -123,6 +141,8 @@ def db_total_events_sales_records():
 
 
 def db_shutdown():
+
+    '''Currently not used but might be necessary for more advanced error handling'''
 
     global salesDB
 

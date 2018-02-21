@@ -3,6 +3,8 @@ import db_store, db_manipulation, ui
 
 def handle_menu_choice(choice):
 
+    '''Main Menu'''
+
     quit = "q"
     choice2 = None
 
@@ -31,6 +33,8 @@ def handle_menu_choice(choice):
 
 def menu_to_sub_menu(selection):
 
+    '''Menu to the slected sub menu either events or merchandise'''
+
     quit = 'q'
     choice2 = None
 
@@ -42,6 +46,8 @@ def menu_to_sub_menu(selection):
 
 def menu_to_record_menu():
 
+    '''Menu to the record menu'''
+
     quit = 'q'
     choice3 = None
 
@@ -51,6 +57,8 @@ def menu_to_record_menu():
 
 def menu_to_search_menu():
 
+    '''Menu to Search menu'''
+
     quit = 'q'
     choice4 = None
 
@@ -59,6 +67,8 @@ def menu_to_search_menu():
 
 
 def handle_sub_menu_choice(choice2, selection):
+
+    '''Handles sub menu choice and specifies the events or merchandise table is selected'''
 
     if choice2 == '1':
         #TODO add function to display table
@@ -124,6 +134,8 @@ def handle_sub_menu_choice(choice2, selection):
 
 def handle_record_menu_choice(choice3):
 
+    '''Handles users choice to display record analysis'''
+
     if choice3 == '1':
         record_list = db_store.db_get_records()
         if record_list != None:
@@ -182,6 +194,8 @@ def handle_record_menu_choice(choice3):
 
 
 def handle_search_menu_choice(choice4):
+
+    '''Handles choice from search menu and then finds and displays results'''
 
     if choice4 == '1':
         term = ui.search_input()

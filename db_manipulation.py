@@ -2,6 +2,9 @@ import sqlite3, db_store
 
 
 def add(table, data):
+
+    '''Inserts user input data into the specific table and the automaticlly creates records for the new data'''
+
     try:
         merch_id = db_store.cur.execute('select max(rowid) from merchandise').fetchone()[0]
         event_id = db_store.cur.execute('select max(rowid) from events').fetchone()[0]
@@ -36,6 +39,8 @@ def add(table, data):
 
 def edit_update(table, edit_id, data):
 
+    '''Updates the data of a row based on the id and table specified'''
+
     try:
         if table == "merchandise":
             db_store.cur.execute('update merchandise set merch_name=?, cost=? where merch_id = ?', (data[0], data[1], edit_id))
@@ -48,6 +53,8 @@ def edit_update(table, edit_id, data):
 
 
 def delete(table, delete_id):
+
+    '''Deletes the row from the table specified based on the delete_id parameter'''
 
     try:
         if table == "merchandise":
@@ -63,6 +70,8 @@ def delete(table, delete_id):
 
 
 def update_record(record):
+
+    '''Records sold value is defaulted to zero, this updates the number sold to the users input'''
     # event, merch, sold
     try:
         e_id = db_store.cur.execute('select event_id from events where name like ?', (record[0],)).fetchone()[0]
